@@ -3,6 +3,7 @@ if [ ! -f /conf/aria2.conf ]; then
 	cp /conf-copy/aria2.conf /conf/aria2.conf
 fi
 if [ $SECRET ]; then
+  echo >> /conf/aria2.conf
 	echo "rpc-secret=${SECRET}" >> /conf/aria2.conf
 fi
 if [ ! -f /conf/on-complete.sh ]; then
