@@ -8,7 +8,7 @@ RUN apk update && \
 	apk add --no-cache --update bash && \
 	mkdir -p /conf && \
 	mkdir -p /conf-copy && \
-	mkdir -p /data && \
+	mkdir -p /downloads && \
 	apk add --no-cache --update aria2 &&\
   apk add --update darkhttpd
 
@@ -19,8 +19,8 @@ ADD files/AriaNg /webui
 RUN chmod +x /conf-copy/start.sh
 
 WORKDIR /
-VOLUME ["/data"]
+VOLUME ["/downloads"]
 VOLUME ["/conf"]
-EXPOSE 80 6800 6881 6881/udp
+EXPOSE 80 6800 41881 41881/udp
 
 CMD ["/conf-copy/start.sh"]
